@@ -1,1 +1,106 @@
-<h1>Bienvenidos a nuestro Portafolio</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Grupal - Construcción de Software</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --dark: #111827;
+            --light: #f9fafb;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: var(--light);
+        }
+        header {
+            padding: 5rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), #4f46e5);
+            color: white;
+        }
+        h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .team { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; margin: 3rem 0; }
+        .member { 
+            flex: 1; min-width: 250px; 
+            padding: 1.5rem; 
+            border-radius: 0.5rem;
+            background: white; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .member:hover { transform: translateY(-5px); }
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.25rem;
+            margin-top: 1rem;
+        }
+        .projects {
+            background: #f3f4f6;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Portafolio de Desarrollo</h1>
+        <p>Curso de Construcción de Software</p>
+    </header>
+    
+    <div class="container">
+        <h2>Nuestro Equipo</h2>
+        <p>Somos un grupo de estudiantes apasionados por el desarrollo de software y la tecnología.</p>
+        
+        <div class="team">
+            <div class="member">
+                <h3>Integrante 1</h3>
+                <p>Desarrollador Frontend</p>
+                <a href="#" class="btn">Ver perfil</a>
+            </div>
+            <div class="member">
+                <h3>Integrante 2</h3>
+                <p>Desarrollador Backend</p>
+                <a href="#" class="btn">Ver perfil</a>
+            </div>
+            <div class="member">
+                <h3>Integrante 3</h3>
+                <p>Diseñador UX/UI</p>
+                <a href="#" class="btn">Ver perfil</a>
+            </div>
+            <div class="member">
+                <h3>Integrante 4</h3>
+                <p>Ingeniero DevOps</p>
+                <a href="#" class="btn">Ver perfil</a>
+            </div>
+        </div>
+    </div>
+    
+    <section class="projects">
+        <div class="container">
+            <h2>Nuestros Proyectos</h2>
+            <p>Conoce los proyectos en los que hemos trabajado como equipo.</p>
+            <a href="#" class="btn">Ver todos los proyectos</a>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Equipo de Desarrollo - Construcción de Software</p>
+    </footer>
+</body>
+</html>
