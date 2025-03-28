@@ -1,0 +1,50 @@
+---
+const { project } = Astro.props;
+---
+
+<div class="project-card card hover-lift" data-category={project.category}>
+  <div class="relative">
+    <img 
+      src={project.image} 
+      alt={project.title}
+      class="w-full h-64 object-cover"
+    />
+    <div class="absolute top-4 right-4">
+      <span class="px-3 py-1 text-xs font-semibold bg-indigo-600 text-white rounded-full uppercase">
+        {project.category}
+      </span>
+    </div>
+  </div>
+  
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-2">{project.title}</h3>
+    <p class="text-slate-600 dark:text-slate-400 mb-4">{project.description}</p>
+    
+    <div class="flex flex-wrap gap-2 mb-5">
+      {project.technologies.map((tech: string) => (
+        <span class="px-3 py-1 text-xs font-medium bg-slate-200 dark:bg-slate-700 rounded-full">
+          {tech}
+        </span>
+      ))}
+    </div>
+    
+    <div class="flex gap-4">
+      <a 
+        href={project.demoUrl} 
+        target="_blank" 
+        class="btn btn-sm btn-primary"
+      >
+        Ver demo
+        <i class="fas fa-external-link-alt ml-2"></i>
+      </a>
+      <a 
+        href={project.repoUrl} 
+        target="_blank" 
+        class="btn btn-sm btn-secondary"
+      >
+        Código
+        <i class="fab fa-github ml-2"></i>
+      </a>
+    </div>
+  </div>
+</div>

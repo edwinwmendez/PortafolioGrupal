@@ -1,0 +1,34 @@
+---
+const skills = [
+  { name: "JavaScript", icon: "fa-brands fa-js", color: "text-yellow-500" },
+  { name: "React", icon: "fa-brands fa-react", color: "text-blue-500" },
+  { name: "HTML5", icon: "fa-brands fa-html5", color: "text-orange-500" },
+  { name: "CSS3", icon: "fa-brands fa-css3-alt", color: "text-blue-600" },
+  { name: "Node.js", icon: "fa-brands fa-node-js", color: "text-green-600" },
+  { name: "Python", icon: "fa-brands fa-python", color: "text-blue-500" },
+  { name: "Java", icon: "fa-brands fa-java", color: "text-red-500" },
+  { name: "Git", icon: "fa-brands fa-git-alt", color: "text-orange-600" },
+  { name: "AWS", icon: "fa-brands fa-aws", color: "text-yellow-500" },
+  { name: "Docker", icon: "fa-brands fa-docker", color: "text-blue-500" },
+  { name: "Database", icon: "fa-solid fa-database", color: "text-indigo-500" },
+  { name: "Mobile", icon: "fa-solid fa-mobile-screen", color: "text-slate-500" }
+];
+---
+
+<section id="skills" class="py-20">
+  <div class="container">
+    <div class="text-center mb-12">
+      <h2 class="section-title">Nuestras Habilidades</h2>
+      <p class="section-subtitle">Tecnologías y herramientas que dominamos como equipo</p>
+    </div>
+    
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+      {skills.map((skill) => (
+        <div class="card hover-lift flex flex-col items-center p-6">
+          <i class={`${skill.icon} ${skill.color} text-4xl mb-4`}></i>
+          <h3 class="font-medium text-center">{skill.name}</h3>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

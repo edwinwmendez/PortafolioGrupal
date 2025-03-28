@@ -1,0 +1,44 @@
+---
+const { member } = Astro.props;
+---
+
+<div class="card hover-lift">
+  <div class="relative overflow-hidden">
+    <img 
+      src={member.image} 
+      alt={member.name}
+      class="w-full h-64 object-cover object-center"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end">
+      <div class="p-4 w-full flex justify-center gap-4">
+        <a href={member.github} target="_blank" class="text-white hover:text-indigo-300 transition-colors">
+          <i class="fab fa-github text-2xl"></i>
+        </a>
+        <a href={member.linkedin} target="_blank" class="text-white hover:text-indigo-300 transition-colors">
+          <i class="fab fa-linkedin text-2xl"></i>
+        </a>
+        <a href={`mailto:${member.email}`} class="text-white hover:text-indigo-300 transition-colors">
+          <i class="fas fa-envelope text-2xl"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-1">{member.name}</h3>
+    <p class="text-indigo-600 dark:text-indigo-400 font-medium mb-3">{member.role}</p>
+    <p class="text-slate-600 dark:text-slate-400 mb-4">{member.bio}</p>
+    <div class="flex flex-wrap gap-2">
+      {member.skills.slice(0, 3).map((skill: string) => (
+        <span class="px-3 py-1 text-xs font-medium bg-slate-200 dark:bg-slate-700 rounded-full">
+          {skill}
+        </span>
+      ))}
+      {member.skills.length > 3 && (
+        <span class="px-3 py-1 text-xs font-medium bg-slate-200 dark:bg-slate-700 rounded-full">
+          +{member.skills.length - 3}
+        </span>
+      )}
+    </div>
+  </div>
+</div>

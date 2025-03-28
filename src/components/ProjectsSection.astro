@@ -1,0 +1,78 @@
+---
+import { projects } from '../data/projects.js';
+import ProjectCard from './ProjectCard.astro';
+---
+
+<section id="projects" class="py-20 bg-slate-100 dark:bg-slate-800/40">
+  <div class="container">
+    <div class="text-center mb-12">
+      <h2 class="section-title">Nuestros Proyectos</h2>
+      <p class="section-subtitle">Trabajos destacados que hemos desarrollado como equipo</p>
+    </div>
+    
+    <div class="flex justify-center mb-8">
+      <div class="inline-flex flex-wrap items-center justify-center gap-2 p-1 bg-white dark:bg-slate-800 rounded-lg shadow-sm">
+        <button 
+          class="filter-btn py-2 px-4 rounded-lg bg-indigo-600 text-white"
+          data-filter="all"
+        >
+          Todos
+        </button>
+        <button 
+          class="filter-btn py-2 px-4 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700"
+          data-filter="web"
+        >
+          Web
+        </button>
+        <button 
+          class="filter-btn py-2 px-4 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700"
+          data-filter="mobile"
+        >
+          Mobile
+        </button>
+        <button 
+          class="filter-btn py-2 px-4 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700"
+          data-filter="iot"
+        >
+          IoT
+        </button>
+      </div>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {projects.map((project) => (
+        <ProjectCard project={project} />
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  // Filtrado de proyectos
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+  
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Quitar active de todos los botones
+      filterBtns.forEach(b => {
+        b.classList.remove('bg-indigo-600', 'text-white');
+        b.classList.add('hover:bg-slate-100', 'dark:hover:bg-slate-700');
+      });
+      
+      // Añadir active al botón clicado
+      btn.classList.add('bg-indigo-600', 'text-white');
+      btn.classList.remove('hover:bg-slate-100', 'dark:hover:bg-slate-700');
+      
+      const filter = btn.getAttribute('data-filter');
+      
+      projectCards.forEach(card => {
+        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+          (card as HTMLElement).style.display = 'block';
+        } else {
+          (card as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

@@ -1,5 +1,9 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
+import tailwind from '@astrojs/tailwind';
 
-// https://astro.build/config
-export default defineConfig({});
+export default defineConfig({
+  site: 'https://edwinwmendez.github.io',
+  base: '/PortafolioGrupal',
+  outDir: './docs', // Cambia el directorio de salida a docs
+  integrations: [tailwind()],
+});
